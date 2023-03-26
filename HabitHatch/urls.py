@@ -22,6 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.mainpage),
     path ('choreselecting', views.choreselecting),
-    path('register', views.register),
-    path('login', views.login)
+    path('register/', views.register),
+    path('login/', views.login)
 ]
