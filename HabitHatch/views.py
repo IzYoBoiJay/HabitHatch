@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm  
 from django.contrib import messages
 from django.http import HttpResponseRedirect
@@ -8,7 +8,14 @@ def mainpage(request):
 
 
 def choreselecting (request):
-    return render(request, 'chorechoosing.html')
+    form = choreForm()
+    if request.method == 'POST':
+        form = choreForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('main')
+    context = {'form': form}
+    return render(request, 'chores.html', context)
 
 def login(request):
     return render(request, 'login.html')

@@ -3,8 +3,14 @@ import uuid
 
 
 class character (models.Model):
-    level = models.IntegerField
+    level = models.IntegerField()
+    name =models.CharField(max_length=50)
+    TID = models.UUIDField('Character ID', primary_key=True, default=uuid.uuid4, editable=False)
     avatar = models.ImageField()
+
+    def __str__(self):
+        return self.name
+
     
 class chores(models.Model):
     name = models.CharField(max_length=250)

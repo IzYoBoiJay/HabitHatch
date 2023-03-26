@@ -4,6 +4,17 @@ from django.contrib.auth.forms import AuthenticationForm, UsernameField
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
+from .models import *
+
+
+class choreForm (forms.ModelForm):
+
+    class Meta:
+        model = chores
+        fields = ['name', 'points', 'character']
+        def __init__(self, *args, **kwargs):
+            super(choreForm, self).__init__(*args, **kwargs)
+            self.fields['character'].queryset = character.objects.all()
 
 class userForm (UserCreationForm):
     username = forms.CharField(label='username', min_length=5, max_length=150)  
@@ -22,3 +33,4 @@ class userForm (UserCreationForm):
             self.cleaned_data['password1']  
         )
         return user    
+    
