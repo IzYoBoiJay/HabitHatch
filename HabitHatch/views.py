@@ -10,6 +10,9 @@ def mainpage(request):
 def choreselecting (request):
     return render(request, 'chorechoosing.html')
 
+def login(request):
+    return render(request, 'login.html')
+
 def register(request):  
     if request.POST == 'POST':  
         form = UserCreationForm()  
@@ -22,4 +25,4 @@ def register(request):
     context = {  
         'form':form  
     }  
-    return render(request, 'register.html', context)  
+    return render(request, 'register.html', context)
