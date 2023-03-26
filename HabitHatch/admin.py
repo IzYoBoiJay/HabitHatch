@@ -4,3 +4,4 @@ from .models import *
 
 admin.site.register(chores)
 admin.site.register(character)
+admin.site.register(level)

@@ -3,8 +3,14 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .forms import *
-def mainpage(request):
+
+def base(request):
     return render(request, 'base.html')
+
+def main(request):
+    choreOne = chores.objects.all()
+    context = {'choreOne': choreOne}
+    return render(request, 'main.html', context)
 
 
 def choreselecting (request):
@@ -13,7 +19,7 @@ def choreselecting (request):
         form = choreForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('main')
+            return redirect('main/')
     context = {'form': form}
     return render(request, 'chores.html', context)
 

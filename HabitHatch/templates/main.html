@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+</head>
+<body>
+{% load static %}
+
+{% block content1 %}
+    <h2>Don't forget to nurture your habitpet</h2>
+    {% for chore in choreOne%}
+        {% if chore.CCID == 1%}
+            {{chore.CCID}}
+            {{chore.name}}
+            <div class="p-xl-5 m-xl-5"><img class="rounded img-fluid w-100 fit-cover" style="max-height: 300px;" src="{{ chore.character.avatar.url }}"></div>
+        {%endif%}
+    {% endfor %}
+{% endblock content1 %}

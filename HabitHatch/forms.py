@@ -12,9 +12,9 @@ class choreForm (forms.ModelForm):
     class Meta:
         model = chores
         fields = ['name', 'points', 'character']
-        def __init__(self, *args, **kwargs):
-            super(choreForm, self).__init__(*args, **kwargs)
-            self.fields['character'].queryset = character.objects.all()
+    def __init__(self, *args, **kwargs):
+        super(choreForm, self).__init__(*args, **kwargs)
+        self.fields['character'].queryset = character.objects.filter(level=1)
 
 class userForm (UserCreationForm):
     username = forms.CharField(label='username', min_length=5, max_length=150)  
