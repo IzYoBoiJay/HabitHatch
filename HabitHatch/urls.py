@@ -25,7 +25,8 @@ urlpatterns = [
     path('main/', views.main),
     path ('choreselecting', views.choreselecting),
     path('register/', views.register),
-    path('login/', views.login)
+    path('login/', views.login),
+    path('play/', views.play)
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

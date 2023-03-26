@@ -13,6 +13,7 @@ def main(request):
     return render(request, 'main.html', context)
 
 
+
 def choreselecting (request):
     form = choreForm()
     if request.method == 'POST':
