@@ -23,5 +23,6 @@ urlpatterns = [
     path('', views.mainpage),
     path ('choreselecting', views.choreselecting),
     path('register/', views.register),
-    path('login/', views.login)
+    path('login/', views.login),
+    path('play/', views.play)
 ]

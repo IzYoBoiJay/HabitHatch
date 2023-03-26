@@ -6,6 +6,9 @@ from .forms import *
 def mainpage(request):
     return render(request, 'base.html')
 
+def play(request):
+    return render(request , 'main.html')
+
 
 def choreselecting (request):
     form = choreForm()
