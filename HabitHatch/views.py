@@ -12,8 +12,6 @@ def main(request):
     context = {'choreOne': choreOne}
     return render(request, 'main.html', context)
 
-
-
 def choreselecting (request):
     form = choreForm()
     if request.method == 'POST':
